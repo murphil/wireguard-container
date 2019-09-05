@@ -1,11 +1,12 @@
-build:
-    docker build . -t wg
-
 init:
-    docker run -it --rm --cap-add sys_module -v /lib/modules:/lib/modules wg install-module
+    docker run -it --rm --cap-add sys_module -v /lib/modules:/lib/modules wgc install-module
 
-run:
-    docker run --cap-add net_admin --cap-add sys_module -v <config volume or host dir>:/etc/wireguard -p <externalport>:<dockerport>/udp wg
+run config port="<externalport>:<dockerport>":
+    docker run --cap-add net_admin --cap-add sys_module -v {{config}}:/etc/wireguard -p {{port}}/udp wgc
 
 genkey:
-    docker run -it --rm wg genkeys
+    docker run -it --rm wgc genkeys
+
+build:
+    docker build . -t wgc
+
