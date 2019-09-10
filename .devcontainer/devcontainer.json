@@ -14,7 +14,7 @@
 		// "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined",
 
 		"-v", "/var/run/docker.sock:/var/run/docker.sock",
-        "-v", "${env:HOME}/.vscode-server:/home/dev/.vscode-server",
+        "-v", "vscode-server:/home/dev/.vscode-server",
         "-v", "${env:HOME}/.gitconfig:/home/dev/.gitconfig",
         "-v", "${env:HOME}/.ssh:/home/dev/.ssh",
         "-v", "${env:HOME}/.zshrc:/home/dev/.zshrc",
