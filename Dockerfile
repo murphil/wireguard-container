@@ -5,7 +5,7 @@ RUN sed -i 's/\(.*\)\(security\|deb\).debian.org\(.*\)main/\1ftp.cn.debian.org\3
  printf 'Package: *\nPin: release a=unstable\nPin-Priority: 90\n' > /etc/apt/preferences.d/limit-unstable
 
 RUN apt update && \
- apt install -y --no-install-recommends wireguard-tools iptables vim net-tools ca-certificates && \
+ apt install -y --no-install-recommends kmod wireguard-tools iptables vim net-tools ca-certificates && \
  apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /scripts
